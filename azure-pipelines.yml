@@ -4,16 +4,19 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- master
+- Default
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Maven@3
+- task: UseJavaVersion@1
   inputs:
     versionSpec: '11'
     architecture: 'x64'
+    
+- task: Maven@3
+  inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
