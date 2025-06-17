@@ -12,6 +12,8 @@ pool:
 steps:
 - task: Maven@3
   inputs:
+    versionSpec: '11'
+    architecture: 'x64'
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
